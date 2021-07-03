@@ -1,1 +1,2 @@
-# instructional_resource_system2
+# Webpack Template
+

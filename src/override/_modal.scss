@@ -1,0 +1,59 @@
+.modal {
+    .modal-header {
+        border: transparent !important;
+        flex-wrap: wrap;
+        
+        .modal-title {
+            font-size: 16px;
+            position: relative;
+            flex: 1;
+            &.form-title {
+                padding-bottom: 12px;
+
+                &::before {
+                    content: 'Note: Fill out the information below';
+                    position: absolute;
+                    left: 0;
+                    top: 25px;
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+    }
+    .modal-body {
+        min-height: 200px;
+
+        .create-resource {
+            .col {
+                border: 1px solid $hr-border;
+                padding: 20px;
+                position: relative;
+                &:hover {
+                    background-color: $modal-resource-hovered;
+                }
+                &:active {
+                    background-color: darken($modal-resource-hovered, 5);
+                }
+        
+                img {
+                    height: 100px;
+                    opacity: .2;
+                }
+                span {
+                    color: $modal-resource-heading;
+                    font-size: 25px;
+                    font-weight: 500;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%) translateY(-50%);
+                }
+            }
+        }
+    }
+    .modal-footer {
+        border: transparent !important;
+    }
+}

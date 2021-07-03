@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+
+    <!-- DATATABLES CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" /> -->
+
+</head>
+
+<body class="bg-light">
+
+    <div class="wrapper">
+        <aside class="d-flex sticky-top" style="width: auto;height: 100vh;z-index: 5">
+            <nav class="left-sidebar-nav">
+                <header>
+                    <span href="#" class="text-primary">Dean's Panel</span>
+                    <i class="fa fa-bars sidebar-nav-btn" data-toggle="tooltip" data-placement="right"
+                        title="Collapse sidebar"></i>
+                </header>
+                <hr>
+                <ul class="navs-list">
+                    <li class="navs-item">
+                        <a href="#" class="navs-link active">
+                            <i class="fa fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a href="#" class="navs-link">
+                            <i class="fa fa-file-alt"></i>
+                            <span>Syllabus</span>
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a href="#" class="navs-link">
+                            <i class="fa fa-home"></i>
+                            <span>Resources</span>
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a href="#" class="navs-link">
+                            <i class="fa fa-home"></i>
+                            <span>Subjects</span>
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a href="#" class="navs-link">
+                            <i class="fa fa-home"></i>
+                            <span>Teachers</span>
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a href="#" class="navs-link">
+                            <i class="fa fa-home"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                </ul>
+                <section class="my-account" data-toggle="dropdown">
+                    <div class="img-container">
+                        <img src="./assets/tower.svg" alt="">
+                    </div>
+                    <div class="details-container">
+                        <span class="fullname">Anthony Ansit (Dean)</span>
+                        <span class="username">ansit101</span>
+                    </div>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Account Settings</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Signout</a>
+                    </div>
+                </section>
+            </nav>
+            <section class="left-sidebar-sub">
+                <header class="dropright">
+                    Filters
+                    <button class="btn btn-primary btn-sm" data-toggle="dropdown">
+                        NEW
+                        <i class="fa fa-chevron-circle-down pl-1"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-resource">New
+                            Resource</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-subject">New
+                            Subject</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-teacher">New
+                            Teacher</a>
+                    </div>
+                </header>
+                <hr>
+                <ul class="navs-list list-group" role="tablist">
+                    <li class="navs-item">
+                        <a class="navs-link list-group-item-action active" data-toggle="list" href="#All" role="tab"
+                            aria-controls="home">
+                            <i class="fa fa-home"></i>
+                            All
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a class="navs-link list-group-item-action" data-toggle="list" href="#ReportsSummary" role="tab"
+                            aria-controls="home">
+                            <i class="fa fa-home"></i>
+                            Reports Summary
+                        </a>
+                    </li>
+                    <li class="navs-item">
+                        <a class="navs-link list-group-item-action" data-toggle="list" href="#Submissions" role="tab"
+                            aria-controls="profile">
+                            <i class="fa fa-home"></i>
+                            Submissions
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div>
+                    <div class="col-12">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="list-home" role="tabpanel"
+                                aria-labelledby="list-home-list"></div>
+                            <div class="tab-pane fade" id="list-profile" role="tabpanel"
+                                aria-labelledby="list-profile-list"></div>
+                            <div class="tab-pane fade" id="list-messages" role="tabpanel"
+                                aria-labelledby="list-messages-list"></div>
+                            <div class="tab-pane fade" id="list-settings" role="tabpanel"
+                                aria-labelledby="list-settings-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+        <main class="main-content">
+            <!-- mt-4 mb-2 -->
+            <header class="sticky-top">
+                <nav class="h-100" aria-label="breadcrumb">
+                    <ol class="breadcrumb align-items-center p-0 m-0 bg-transparent">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="main-heading">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item active">All</li>
+                    </ol>
+                </nav>
+                <div class="page-actions-container">
+                    <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
+                    <button type="button" class="btn btn-sm btn-success" data-toggle="modal"
+                        data-target="#modal-syllabus">
+                        <i class="fa fa-plus-circle mr-1"></i>
+                        Create something
+                    </button>
+                </div>
+            </header>
+            <hr>
+            <section class="main-body container-fluid px-0">
+                <div class="dashboard-table all">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID.</th>
+                                <th scope="col">Created</th>
+                                <th scope="col">Submitter</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                        <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                        <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                        <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                        <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                        <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                        <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                        <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                        <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                        <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                        <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                        <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                        <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="dashboard-table report-summary" style="display:none">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID2.</th>
+                                <th scope="col">Created2</th>
+                                <th scope="col">Submitter2</th>
+                                <th scope="col">Subject2</th>
+                                <th scope="col">Status2</th>
+                                <th scope="col">Actions2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="dashboard-table report-summary2" style="display:none">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID3.</th>
+                                <th scope="col">Created3</th>
+                                <th scope="col">Submitter3</th>
+                                <th scope="col">Subject3</th>
+                                <th scope="col">Status3</th>
+                                <th scope="col">Actions3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>
+                                    <span class="badge badge-success p-1">CHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>
+                                    <span class="badge badge-danger p-1">UNCHECKED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>
+                                    <span class="badge badge-warning p-1">ARCHIVED</span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <a href="#" class="btn btn-link btn-sm">View</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Edit</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Delete</a>
+                                        <a href="#" class="btn btn-link btn-sm ml-2">Archive</a>
+                                        <!-- <button class="btn btn-light btn-sm">View</button>
+                                    <button class="btn btn-info btn-sm ml-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm ml-2">Delete</button>
+                                    <button class="btn btn-warning btn-sm ml-2">Archive</button> -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <!-- Offscreens -->
+
+    <!-- Success Toast -->
+    <div class="toast toast-success hide" role="alert" aria-live="assertive" aria-atomic="true" id="liveToast"
+        data-delay='4000'>
+        <div class="toast-body">
+            You have successfully created a subject.
+        </div>
+    </div>
+
+
+    <!-- Modal Resource -->
+    <div class="modal fade" id="modal-resource" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Resource</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip"
+                        data-placement="right" title="Close modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="create-resource container">
+                        <div class="row bg-light">
+                            <div class="col">
+                                <img src="./assets/svg-syllabus.svg" alt="syllabus"
+                                    class="img-fluid rounded mx-auto d-block">
+                                <span class="position-absolute">Syllabus</span>
+                            </div>
+                            <div class="col">
+                                <img src="./assets/svg-activity.svg" alt="activity"
+                                    class="img-fluid rounded mx-auto d-block" style="height: 100px;">
+                                <span class="position-absolute">Activity</span>
+                            </div>
+                            <div class="col">
+                                <img src="./assets/svg-quiz.svg" alt="quiz" class="img-fluid rounded mx-auto d-block"
+                                    style="height: 100px;">
+                                <span class="position-absolute">Quiz</span>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col">
+                                <img src="./assets/svg-assignment.svg" alt="assignment"
+                                    class="img-fluid rounded mx-auto d-block" style="height: 100px;">
+                                <span class="position-absolute">Assignment</span>
+                            </div>
+                            <div class="col">
+                                <img src="./assets/svg-ppt.svg" alt="ppt" class="img-fluid rounded mx-auto d-block"
+                                    style="height: 100px;">
+                                <span class="position-absolute">PPT</span>
+                            </div>
+                            <div class="col">
+                                <img src="./assets/svg-exam.svg" alt="exam" class="img-fluid rounded mx-auto d-block"
+                                    style="height: 100px;">
+                                <span class="position-absolute">Exam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Syllabus -->
+    <div class="modal fade" id="modal-syllabus" tabindex="-1" aria-hidden="true" data-backdrop="static"
+        data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title form-title">Create Syllabus</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip"
+                        data-placement="right" title="Close modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <section class="syllabus-tabs">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item small" role="presentation">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                    role="tab" aria-controls="pills-home" aria-selected="true">Chapter 1</a>
+                            </li>
+                            <li class="nav-item small" role="presentation">
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                    role="tab" aria-controls="pills-profile" aria-selected="false">Chapter 2</a>
+                            </li>
+                            <li class="nav-item small" role="presentation">
+                                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                    role="tab" aria-controls="pills-contact" aria-selected="false">Chapter 3</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="staticEmail"
+                                            class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword"
+                                            class="col-sm-2 col-form-label col-form-label-sm">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label col-form-label-sm">Firstname</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label col-form-label-sm">Lastname </label>
+                                        <div class="col-sm-10">
+                                            <input type="password" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade show" id="pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="staticEmail" class="col-sm-3 col-form-label col-form-label-sm">Your
+                                            grade 1st semester</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword"
+                                            class="col-sm-3 col-form-label col-form-label-sm">Your
+                                            grade 2nd semester</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label col-form-label-sm">Class
+                                            description</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control form-control-sm"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label col-form-label-sm">Year level </label>
+                                        <div class="col-sm-9">
+                                            <select name="" class="form-control form-control-sm" required>
+                                                <option value="" disabled selected>choose a year level</option>
+                                                <option>First Year</option>
+                                                <option>Second Year</option>
+                                                <option>Third Year</option>
+                                                <option>Fourth Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade show" id="pills-contact" role="tabpanel"
+                                aria-labelledby="pills-contact-tab">
+                                <form>
+                                    <div class="form-group row">
+                                        <label for="staticEmail" class="col-sm-3 col-form-label col-form-label-sm">No.
+                                            of students</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword"
+                                            class="col-sm-3 col-form-label col-form-label-sm">Room No.</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label col-form-label-sm">Building No.</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" class="form-control form-control-sm">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <modal class="modal-footer">
+                    <button type="button" class="btn btn-light btn-sm tab-btn tab-prev disabled">
+                        <i class="fa fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm tab-btn tab-next">
+                        Next
+                        <i class="fa fa-arrow-right"></i>
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-sm btn-submit" style="display:none">Submit</button>
+                </modal>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Subject -->
+    <div class="modal fade" id="modal-subject" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title form-title">Create Subject</h5>
+                    <button type="button" class="close" data-dismiss="modal" data-toggle="tooltip"
+                        data-placement="right" title="Close modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="">
+                    <div class="modal-body">
+                        <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <div class="alert-icon">
+                                <i class="fa fa-exclamation-circle"></i>
+                            </div>
+                            <strong>There is a problem with some of your inputs.</strong> You should check in on those
+                            fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div> -->
+                        <div class="form-group with-icon">
+                            <i class="fa fa-folder">
+                            </i>
+                            <input type="text" class="form-control form-control-sm" placeholder="subject name" required>
+                        </div>
+                        <hr>
+                        <div class="form-group with-icon">
+                            <i class="fa fa-list-ol">
+                            </i>
+                            <select name="" class="form-control form-control-sm" required>
+                                <option value="" disabled selected>choose a year level</option>
+                                <option>First Year</option>
+                                <option>Second Year</option>
+                                <option>Third Year</option>
+                                <option>Fourth Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group with-icon">
+                            <i class="fa fa-sort-amount-down">
+                            </i>
+                            <select name="" class="form-control form-control-sm" required>
+                                <option value="" disabled selected>select a term</option>
+                                <option>First Term</option>
+                                <option>Second Term</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="reset" class="btn btn-light btn-sm btn-loading">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-sm btn-loading">Submit subject</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Teacher -->
+    <div class="modal fade" id="modal-teacher" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Teacher</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="tooltip"
+                        data-placement="right" title="Close modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="spinner">
+                        <span class="spinner-grow text-primary" role="status">
+                        </span>
+                        <span class="spinner-grow text-primary" role="status">
+                        </span>
+                        <span class="spinner-grow text-primary" role="status">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
