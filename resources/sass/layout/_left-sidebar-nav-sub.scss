@@ -1,0 +1,32 @@
+.left-sidebar-nav-sub {
+    background-color: #fff;
+    width:210px;
+    height:100%;
+    box-shadow: 1px 0 2px #CDCFD1;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    header {
+        height: 56px;
+        box-shadow: 0 0 2px #CDCFD1;
+        font-weight: 500;
+    }
+    .nav-link {
+        position: relative;
+        overflow-x: hidden;
+        &.active {
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: -1px;
+                width: 4px;
+                height: 100%;
+                border-radius: 25px;
+                background: $primary;
+                transition: all .3s ease-in-out;
+            }
+        }   
+    }
+}

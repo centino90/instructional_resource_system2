@@ -1,0 +1,35 @@
+.filepond--root {
+    border: 1px dashed #ced4da;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow .15s ease-in-out;
+    &:hover {
+        border: 1px dashed #D4EDDA;
+        .filepond--panel-root { 
+            background-color: $table-row-hovered;
+        }
+    }
+    &:focus-within, &:active {
+        border: 1px transparent;
+        box-shadow: 0 0 0 1.5px $primary;
+        .filepond--panel-root {
+            background-color: #fff;    
+        }
+    }
+}
+.filepond--panel-root {
+    background-color: lighten($light, 1);
+    border-radius: 0;
+}
+.filepond--drop-label label {
+    font-size: 14px;
+    i {
+        font-size: 22px;
+    }
+}
+.filepond--credits {
+    display: none;
+}   
+
+
+

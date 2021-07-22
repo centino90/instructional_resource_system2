@@ -1,0 +1,54 @@
+.btn {
+    box-shadow: 0 0 0 transparent !important;
+    border-radius: 8px;
+}
+.modal .btn {
+    min-width: 82px;
+    padding-right: 10px;
+}
+.btn.disabled {
+    cursor: not-allowed;
+}
+.btn-light, .btn-danger, .btn-info, .btn-warning, .btn-primary, .btn-secondary, .btn-success, .btn-dark {
+    box-shadow: 0 0 2px $primary !important;
+}
+.btn-cancel {
+    border: 1px solid #ced4da;
+    font-weight: 300;
+    &:hover {
+        opacity: .8;
+    }
+}
+.btn-sm.btn-loading {
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+        vertical-align: middle;
+        border: 2.5px solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        animation: .75s linear infinite spinner-border;
+    }
+    @keyframes spinner-border {
+        to { transform: rotate(360deg); }
+    }
+}
+
+button.close {
+    font-size: 15px;
+}
+.dt-button {
+    background-color: #fff;
+    border: 1px transparent;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 14px;
+    box-shadow: 0 0 2px $primary !important;
+    transition: background .15s ease-in-out;
+    &:hover {
+        background-color: darken(#fff, 8);
+    }
+}

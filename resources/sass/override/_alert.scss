@@ -1,0 +1,13 @@
+.alert[role='alert'] {
+    font-size: 13px;
+    position: relative;
+    padding-left: 40px;
+    .alert-icon {
+        position: absolute;
+        left: 1rem;
+        top: 1;
+    }
+    button.close {
+        font-size: 18px;
+    }
+}

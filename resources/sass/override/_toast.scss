@@ -1,0 +1,42 @@
+.toast-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    right:0;
+    top:0;
+    padding-top:7px;
+    padding-right: 7px;
+    z-index: 5;
+    pointer-events: none;
+}
+.toasts {
+    width: 270px;
+    margin-left: auto;
+}
+.toast[role='alert'] {
+    border: none;
+    border-radius: 7px;
+    width: 270px;
+    &.toast-success {
+        background-color: rgba($success, .9);
+        color: #fff;
+        .toast-body::before {
+            content: '\f00c';
+        }
+    }
+    &.toast-danger {
+        background-color: rgba($danger, .9);
+        color: #fff;
+        .toast-body::before {
+            content: '\f057';
+        }
+    }
+    .toast-body {
+        display: flex;
+        &::before {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: bold;
+            margin-right: 12px;
+        }
+    }
+}

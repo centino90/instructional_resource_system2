@@ -1,0 +1,55 @@
+.form-group.with-icon {
+    position: relative;
+    i {
+        color: $modal-resource-heading;
+        font-size: 14px;
+        padding: 0 8px;
+        min-width: 25px;
+        position: absolute;
+        top: 9px;
+        left: 0;
+    }
+    .form-control {
+        padding: 0 6px 0 30px;
+    }
+    select.form-control{ 
+        padding: 0 4px 0 25px;
+        &:required:invalid {
+            color: $input-placeholder;
+        
+        }
+        option {
+            color: #000;
+            &[value=""][disabled] {
+                display: none;
+            }
+        }
+    }
+    input.form-control::placeholder, textarea.form-control, select option:first-child {
+        color: $input-placeholder;
+        opacity: 1;
+    }
+
+    .invalid-feedback, .valid-feedback {
+        padding-left: 5px;
+    }
+}
+
+.form-control {
+    border-radius: 8px;
+    background-color: lighten($light, 1);
+    &:hover {
+        box-shadow: 0 0 0 1px #D4EDDA;
+    }
+    &:focus {
+        box-shadow: 0 0 0 1px $primary;
+    }
+    &.is-invalid, &.is-valid {
+        background-image: none;
+        padding-right: .5rem;
+    }
+}
+
+.form-control.w-sm {
+    max-width: 270px;
+}

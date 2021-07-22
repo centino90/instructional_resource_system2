@@ -1,0 +1,51 @@
+//icons
+// @import "~@fortawesome/fontawesome-free/css/all.min.css";
+// @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+// sass custom variables
+@import "variables/colors";
+
+// bs4 sass presets variables override
+@import "override/color";
+
+// bs4
+@import "~bootstrap/scss/bootstrap";
+
+// bs4 styling override
+@import "override/datatables";
+@import "override/filepond";
+@import "override/buttons";
+@import "override/list-group-action";
+@import "override/dropdown";
+@import "override/modal";
+@import "override/alert";
+@import "override/toast";
+@import "override/form";
+@import "override/tooltip";
+@import "override/nav";
+
+// layout with javascript triggered css
+@import "layout/left-sidebar-nav-main";
+@import "layout/left-sidebar-nav-sub";
+@import "layout/main-content";
+
+@import "members/calo";
+@import "members/nola";
+
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;   
+}
+
+.left-sidebar {
+    display: flex;
+    height: 100vh;
+    z-index: 5;
+}
+

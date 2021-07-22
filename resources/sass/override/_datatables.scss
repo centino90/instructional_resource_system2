@@ -1,0 +1,139 @@
+@mixin table-sections {
+    background-color: #fff;
+    width: 50%;
+    padding: 0 13px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: $table-subheading;
+    border: 1px solid #E8EAEC;
+  }
+
+.dataTables_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .searchbar {
+        width: 50%; 
+        padding-bottom: 15px;
+    }
+    .dt-buttons {
+        width: 50%;
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        flex-flow: row-reverse;
+        gap: 10px;
+    }
+    .dataTables_info {
+        @include table-sections();
+        border-radius: 7px 0 0 7px;
+        border-right: 0px transparent;
+    }
+    .dataTables_length {
+        @include table-sections();
+        justify-content: flex-end;
+        border-radius: 0 7px 7px 0;
+        border-left: 0px transparent;
+        label {
+            margin-top: 7px;
+        }
+        select {
+            height: calc(1.5em + 0.5rem + 2px);
+            line-height: 1.5;
+            margin-left: 5px;
+        }
+    }
+    .dataTable  {
+        border-radius: 7px;
+        border-collapse: separate;
+        border-spacing: 0 15px;
+        thead {
+            border-radius: 7px;
+            box-shadow: 0 0 0 1px #CDCFD1;
+            font-size: 13px;
+            color: $thead-text;
+            height: 43px;
+            text-transform: default;
+        }
+        th {
+            cursor: default;
+            &::after {
+                font-family: "Font Awesome 5 Free"; 
+                content: '\f0dc';
+                padding-left: 10px;
+            }
+            &:hover {
+                background-color: darken($table-row-hovered, 2);
+            }
+            &:active {
+                background-color: darken($table-row-hovered, 5);
+            }
+        }
+        tbody {
+            background-color: #fff;
+            tr {
+                border-radius: 7px;
+                box-shadow: 0px 0px 2px #CDCFD1;
+                height: 52px;
+                font-size: 13px;
+                color: darken($table-row-text, 10);
+                &:focus {
+                    background-color: #D4EDDA;
+                }
+                td {
+                    // width: 300px;
+                    vertical-align: middle;
+                    &:nth-last-of-type(n + 2) {
+                        // width: 120px;
+                    }
+                    &:last-child {
+                        :first-child {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+        .dataTables_empty {
+           text-align: center;
+        }
+    }
+    .dataTables_paginate {
+        padding: 15px 13px;
+        display: inline;
+        margin-left: auto;
+        .paginate_button {
+            border-radius: 50%;
+            color: $table-subheading;
+            width: 50px;
+            height: 30px;
+            padding: 7px 12px;
+            text-decoration: none;
+            font-size: 15px;
+            cursor: default;
+            &:hover {
+                background-color: lighten($secondary, 45);
+            }
+            &:active {
+                background-color: lighten($secondary, 40);
+            }
+            &.next, &.previous  {
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+            &.current, &.active {
+                color: $primary;
+                font-weight: 600;
+                background-color: lighten($primary, 38);
+            }
+            &.disabled {
+                cursor: not-allowed;
+                color: $disabled-btn;
+                background-color: transparent;
+            }
+        }
+    }
+}
