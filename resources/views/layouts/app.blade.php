@@ -622,7 +622,7 @@
                 allowMultiple: true,
                 credits: false,
                 server: {
-                    url: 'http://127.0.0.1:8000',
+                    url: 'http://localhost:8000',
                     process: {
                         url: '/uploadTemporaryFiles',
                         headers: {
