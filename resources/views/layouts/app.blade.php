@@ -80,20 +80,6 @@
             </div>
         </section>
     @endif
-    <section class="toast-wrapper">
-        <div class="toasts">
-            <div class="toast toast-success shadow hide" role="alert" aria-live="assertive" aria-atomic="true"
-                id="liveToast" data-delay='6000'>
-                <div class="toast-body">
-                    Lorem ipsum dolor sit amet consectetur.
-                    <div class="spinner">
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Modals -->
 
     <div class="modal" id="modal-resource" tabindex="-1" aria-hidden="true" data-backdrop="static"
@@ -614,10 +600,10 @@
     @yield('script')
     <script>
         $(document).ready(function() {
-            const pond = FilePond.create(
+            let resourceFilePond = FilePond.create(
                 $('#resource-file-input')[0]
             )
-            pond.setOptions({
+            resourceFilePond.setOptions({
                 labelIdle: 'Drag & Drop your files or <span class="filepond--label-action"> Browse </span><br><i class="fas fa-cloud-upload-alt"></i>',
                 allowMultiple: true,
                 credits: false,
