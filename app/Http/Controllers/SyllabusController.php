@@ -17,7 +17,6 @@ class SyllabusController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -43,9 +42,9 @@ class SyllabusController extends Controller
         $validatedCollection = collect($request->validated());
         $mergedValidatedCollection = $validatedCollection->merge(['pdf_data' => $newFileName]);
 
-        if(Syllabus::create($mergedValidatedCollection->all())) {
+        if (Syllabus::create($mergedValidatedCollection->all())) {
             $request->session()->flash('status', 'Syllabus was created successfully');
-            $request->file('pdf_data')->storeAs('public', $newFileName);
+            Storage::putFileAs('', $request->file('pdf_data'), $newFileName);
 
             return response()->json(['message' => 'success'], 200);
         }
